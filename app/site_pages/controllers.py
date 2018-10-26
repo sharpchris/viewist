@@ -5,11 +5,10 @@ from flask import Blueprint, request, render_template, \
 # Import the database object from the main app module
 from app import db
 
-# Import module models (i.e. User)
-from models import Account, Link
+# Define the blueprint: 'site_pages', set its url prefix: view.ist/pages
+site_pages = Blueprint('pages', __name__, template_folder='templates', static_folder='static')
 
 # Set the route and accepted methods
-@app.route("/", methods=['GET', 'POST'])
+@site_pages.route("/", methods=['GET', 'POST'])
 def index():
-    print ("Hello")
-    return (json.dumps({'success':True}), 201, {'ContentType':'text/html'})
+    return render_template("site_pages/index.html")

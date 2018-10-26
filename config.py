@@ -1,5 +1,7 @@
 import os
 
+SERVER_NAME = 'example.com:8081'
+
 # Application threads. A common general assumption is
 # using 2 per available processor cores - to handle
 # incoming requests using one and performing background
